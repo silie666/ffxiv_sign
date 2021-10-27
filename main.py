@@ -142,7 +142,7 @@ class Ffxivclass():
         time.sleep(1)
         self.driver.find_element_by_class_name("wegame_login_area").click()
         time.sleep(1)
-        self.driver.switch_to.frame("0")
+        self.driver.switch_to.frame(0)
         time.sleep(1)
         self.driver.find_element_by_id("switcher_plogin").click()
         time.sleep(1)
