@@ -1,11 +1,15 @@
 import time
 import random
-import requests
 from selenium import webdriver
 from urllib.request import urlretrieve
 from PIL import Image
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.options import Options
+
+
+USER = "USER"
+PASS = "PASS"
+AREA = "AREA"
 
 class Ffxivclass():
     def __init__(self):
@@ -17,8 +21,10 @@ class Ffxivclass():
         chrome_options.add_argument('--disable-dev-shm-usage') #windows可以去掉
         chrome_options.add_argument(
             'user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36')
-        self.driver = webdriver.Chrome(executable_path='/files/python_code/ffxiv_sign/chromedriver',options=chrome_options)#指定驱动目录
-        
+        #self.driver = webdriver.Chrome(options=chrome_options)#指定驱动目录
+        #self.driver = webdriver.Chrome(executable_path='/files/python_code/ffxiv_sign/chromedriver',options=chrome_options)
+        self.driver = webdriver.Chrome(executable_path='/snap/bin/chromium.chromedriver',options=chrome_options)
+
     def get_img(self,src):
         src_bg = src.replace('index=1', 'index=0')
         src_bg = src_bg.replace('img_index=1', 'img_index=0')
@@ -146,9 +152,9 @@ class Ffxivclass():
         time.sleep(1)
         self.driver.find_element_by_id("switcher_plogin").click()
         time.sleep(1)
-        self.driver.find_element_by_id("u").send_keys("*********")  #账号
+        self.driver.find_element_by_id("u").send_keys(USER)  #账号
         time.sleep(1)
-        self.driver.find_element_by_id("p").send_keys("*********")   #密码
+        self.driver.find_element_by_id("p").send_keys(PASS)   #密码
         time.sleep(1)
         self.driver.find_element_by_id("login_button").click()
         time.sleep(1)
@@ -175,13 +181,13 @@ class Ffxivclass():
         time.sleep(1)
         select_type[0].click()
         time.sleep(1)
-        area_type[1].click() # 选择大区
+        area_type[int(AREA)].click()  #0-陆行鸟 1-莫古力 2-猫小胖 3-豆豆柴
         time.sleep(3)
         select_type[1].click()
         time.sleep(2)
         area_type = self.driver.find_elements_by_class_name("el-select-dropdown__item")
         time.sleep(1)
-        area_type[4].click() # 选择账号
+        area_type[4].click() #4-第一个角色
         time.sleep(1)
         self.driver.find_element_by_class_name("el-button--primary").click()
         time.sleep(1)
@@ -191,19 +197,6 @@ class Ffxivclass():
         self.driver.close()
 
 
-def bilibiliSign():
-    url = 'https://api.live.bilibili.com/xlive/web-ucenter/v1/sign/DoSign'
-    #   header={'Host':host}
-    headers = {
-        'cookie': 'SESSDATA=*********', #b站cookie里面找到这个值替换掉***
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 '
-                      'Safari/537.36 '
-    }
-    req = requests.get(url, headers=headers)
-    print(req.text)
-
 if __name__ == '__main__':
     ffxiv  = Ffxivclass()
     ffxiv.ffxivsign()
-    bilibiliSign()
