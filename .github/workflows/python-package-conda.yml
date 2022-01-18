@@ -1,0 +1,29 @@
+name: 'FFXIV Sign'
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '5 16,22 * * *'
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v2
+      - name: 'Set python'
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.6'
+      - name: 'Install dependencies'
+        run: python -m pip install --upgrade requests
+      - name: 'chrome'
+        run:  add-apt-repository ppa:a-v-shkop/chromium && apt-get update && apt-get install chromium-browser
+      - name: 'Start Sign'
+        env:
+          USER: ${{ secrets.USER }}
+          PASS: ${{ secrets.PASS }}
+          AREA: ${{ secrets.AREA }}
+        run: python main.py
