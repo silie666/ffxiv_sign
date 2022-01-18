@@ -20,7 +20,7 @@ jobs:
       - name: 'Install dependencies'
         run: python -m pip install --upgrade requests
       - name: 'chrome'
-        run:  apt-get install chromium-browser
+        run:  sudo apt-get install chromium-browser
       - name: 'Start Sign'
         env:
           USER: ${{ secrets.USER }}
