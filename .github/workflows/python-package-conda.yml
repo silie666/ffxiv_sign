@@ -3,7 +3,7 @@ name: 'FFXIV Sign'
 on:
   push:
     branches:
-      - main
+      - master
   schedule:
     - cron: '5 16,22 * * *'
 
