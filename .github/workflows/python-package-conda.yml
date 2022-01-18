@@ -18,7 +18,11 @@ jobs:
         with:
           python-version: '3.6'
       - name: 'Install dependencies'
-        run: python -m pip install --upgrade requests
+        run: |
+          python -m pip install --upgrade requests
+          pip install selenium==3.141.0
+          pip install lxml==4.5.1
+          pip install requests==2.23.0
       - name: 'chrome'
         run:  sudo apt-get install chromium-browser
       - name: 'Start Sign'
