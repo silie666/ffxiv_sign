@@ -20,7 +20,7 @@ jobs:
       - name: 'Install dependencies'
         run: python -m pip install --upgrade requests
       - name: 'chrome'
-        run:  add-apt-repository ppa:a-v-shkop/chromium && apt-get update && apt-get install chromium-browser
+        run:  apt-get install chromium-browser
       - name: 'Start Sign'
         env:
           USER: ${{ secrets.USER }}
