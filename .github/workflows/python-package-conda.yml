@@ -23,6 +23,8 @@ jobs:
           pip install selenium==3.141.0
           pip install lxml==4.5.1
           pip install requests==2.23.0
+          pip install image==1.5.33
+          pip install urllib3==1.26.4
       - name: 'chrome'
         run:  sudo apt-get install chromium-browser
       - name: 'Start Sign'
