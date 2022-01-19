@@ -138,7 +138,7 @@ class Ffxivclass():
         ActionChains(self.driver).release().perform()
 
 
-    def ffxivsign(self,user,pass,area):
+    def ffxivsign(self,user,password,area):
         print(user)
         print(pass)
         print(area)
@@ -154,7 +154,7 @@ class Ffxivclass():
         time.sleep(1)
         self.driver.find_element_by_id("u").send_keys(user)  #账号
         time.sleep(1)
-        self.driver.find_element_by_id("p").send_keys(pass)   #密码
+        self.driver.find_element_by_id("p").send_keys(password)   #密码
         time.sleep(1)
         self.driver.find_element_by_id("login_button").click()
         time.sleep(5)
@@ -200,7 +200,7 @@ class Ffxivclass():
 
 if __name__ == '__main__':
     user = os.getenv("USER")
-    pass = os.getenv("PASS")
+    password = os.getenv("PASS")
     area = os.getenv("AREA")
     ffxiv  = Ffxivclass()
-    ffxiv.ffxivsign(user,pass,area)
+    ffxiv.ffxivsign(user,password,area)
