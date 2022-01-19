@@ -157,7 +157,7 @@ class Ffxivclass():
         self.driver.find_element_by_id("p").send_keys(PASS)   #密码
         time.sleep(1)
         self.driver.find_element_by_id("login_button").click()
-        time.sleep(1)
+        time.sleep(5)
         self.driver.switch_to.default_content()
         time.sleep(1)
         select_type = self.driver.find_elements_by_class_name("el-input--suffix")
