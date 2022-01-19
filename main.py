@@ -1,12 +1,17 @@
 import time
 import os
 import random
+import logging
 from selenium import webdriver
 from urllib.request import urlretrieve
 from PIL import Image
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.options import Options
 
+
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
 class Ffxivclass():
     def __init__(self):
@@ -139,9 +144,9 @@ class Ffxivclass():
 
 
     def ffxivsign(self,user,password,area):
-        print(user)
-        print(password)
-        print(area)
+        logger.info(user)
+        logger.info(password)
+        logger.info(area)
         self.driver.get("https://actff1.web.sdo.com/20180707jifen/#/home")
         time.sleep(1)
         self.driver.find_element_by_class_name("signBtn").click()
