@@ -23,7 +23,7 @@ class Ffxivclass():
             'user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36')
         #self.driver = webdriver.Chrome(options=chrome_options)#指定驱动目录
         #self.driver = webdriver.Chrome(executable_path='/files/python_code/ffxiv_sign/chromedriver',options=chrome_options)
-        self.driver = webdriver.Chrome(executable_path='/snap/bin/chromium.chromedriver',options=chrome_options)
+        self.driver = webdriver.Chrome(executable_path='./chromedriver',options=chrome_options)
 
     def get_img(self,src):
         src_bg = src.replace('index=1', 'index=0')
