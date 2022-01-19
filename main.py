@@ -198,5 +198,8 @@ class Ffxivclass():
 
 
 if __name__ == '__main__':
+    USER = os.environ['USER']
+    PASS = os.environ['PASS']
+    AREA = os.environ['AREA']
     ffxiv  = Ffxivclass()
     ffxiv.ffxivsign()
