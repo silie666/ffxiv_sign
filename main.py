@@ -200,9 +200,9 @@ class Ffxivclass():
 
 
 if __name__ == '__main__':
-    USER = os.environ['USER']
-    PASS = os.environ['PASS']
-    AREA = os.environ['AREA']
+    USER = os.getenv("USER")
+    PASS = os.getenv("PASS")
+    AREA = os.getenv("AREA")
     print(USER)
     print(PASS)
     print(AREA)
