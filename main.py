@@ -140,7 +140,7 @@ class Ffxivclass():
 
     def ffxivsign(self,user,password,area):
         print(user)
-        print(pass)
+        print(password)
         print(area)
         self.driver.get("https://actff1.web.sdo.com/20180707jifen/#/home")
         time.sleep(1)
