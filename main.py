@@ -143,9 +143,6 @@ class Ffxivclass():
 
 
     def ffxivsign(self):
-        print(USER)
-        print(PASS)
-        print(AREA)
         self.driver.get("https://actff1.web.sdo.com/20180707jifen/#/home")
         time.sleep(1)
         self.driver.find_element_by_class_name("signBtn").click()
@@ -206,5 +203,8 @@ if __name__ == '__main__':
     USER = os.environ['USER']
     PASS = os.environ['PASS']
     AREA = os.environ['AREA']
+    print(USER)
+    print(PASS)
+    print(AREA)
     ffxiv  = Ffxivclass()
     ffxiv.ffxivsign()
