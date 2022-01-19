@@ -179,7 +179,7 @@ class Ffxivclass():
         time.sleep(1)
         select_type[0].click()
         time.sleep(1)
-        area_type[int(area)].click()  
+        area_type[area].click()  
         time.sleep(3)
         select_type[1].click()
         time.sleep(2)
@@ -198,6 +198,6 @@ class Ffxivclass():
 if __name__ == '__main__':
     user = "***" #账号
     password = "***" #密码
-    area = "1" #0-陆行鸟 1-莫古力 2-猫小胖 3-豆豆柴
+    area = 1 #0-陆行鸟 1-莫古力 2-猫小胖 3-豆豆柴
     ffxiv  = Ffxivclass()
     ffxiv.ffxivsign(user,password,area)
