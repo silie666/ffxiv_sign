@@ -26,7 +26,7 @@ jobs:
           pip install image==1.5.33
           pip install urllib3==1.26.4
       - name: 'chrome'
-        run:  sudo apt-get install chromium-browser
+        run:  sudo apt-get install google-chrome
       - name: 'Start Sign'
         env:
           USER: ${{ secrets.USER }}
