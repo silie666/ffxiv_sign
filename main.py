@@ -8,10 +8,6 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.options import Options
 
 
-USER = "USER"
-PASS = "PASS"
-AREA = "AREA"
-
 class Ffxivclass():
     def __init__(self):
         chrome_options = Options()
@@ -142,7 +138,10 @@ class Ffxivclass():
         ActionChains(self.driver).release().perform()
 
 
-    def ffxivsign(self):
+    def ffxivsign(self,user,pass,area):
+        print(user)
+        print(pass)
+        print(area)
         self.driver.get("https://actff1.web.sdo.com/20180707jifen/#/home")
         time.sleep(1)
         self.driver.find_element_by_class_name("signBtn").click()
@@ -153,9 +152,9 @@ class Ffxivclass():
         time.sleep(1)
         self.driver.find_element_by_id("switcher_plogin").click()
         time.sleep(1)
-        self.driver.find_element_by_id("u").send_keys(USER)  #账号
+        self.driver.find_element_by_id("u").send_keys(user)  #账号
         time.sleep(1)
-        self.driver.find_element_by_id("p").send_keys(PASS)   #密码
+        self.driver.find_element_by_id("p").send_keys(pass)   #密码
         time.sleep(1)
         self.driver.find_element_by_id("login_button").click()
         time.sleep(5)
@@ -183,7 +182,7 @@ class Ffxivclass():
         time.sleep(1)
         select_type[0].click()
         time.sleep(1)
-        area_type[int(AREA)].click()  #0-陆行鸟 1-莫古力 2-猫小胖 3-豆豆柴
+        area_type[int(area)].click()  #0-陆行鸟 1-莫古力 2-猫小胖 3-豆豆柴
         time.sleep(3)
         select_type[1].click()
         time.sleep(2)
@@ -200,11 +199,8 @@ class Ffxivclass():
 
 
 if __name__ == '__main__':
-    USER = os.getenv("USER")
-    PASS = os.getenv("PASS")
-    AREA = os.getenv("AREA")
-    print(USER)
-    print(PASS)
-    print(AREA)
+    user = os.getenv("USER")
+    pass = os.getenv("PASS")
+    area = os.getenv("AREA")
     ffxiv  = Ffxivclass()
-    ffxiv.ffxivsign()
+    ffxiv.ffxivsign(user,pass,area)
