@@ -143,6 +143,9 @@ class Ffxivclass():
 
 
     def ffxivsign(self):
+        print(USER)
+        print(PASS)
+        print(AREA)
         self.driver.get("https://actff1.web.sdo.com/20180707jifen/#/home")
         time.sleep(1)
         self.driver.find_element_by_class_name("signBtn").click()
@@ -163,6 +166,7 @@ class Ffxivclass():
         time.sleep(1)
         select_type = self.driver.find_elements_by_class_name("el-input--suffix")
         time.sleep(1)
+        print(len(select_type))
         if len(select_type) == 0:
             self.driver.switch_to.frame("ptlogin_iframe")
             self.driver.switch_to.frame("tcaptcha_iframe")
